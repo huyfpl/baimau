@@ -1,0 +1,38 @@
+<form action="/add" method="post" class="container" style="padding: 30px;  max-width: 400px; margin: 10px auto; background-color: aquamarine;">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4 ">
+    <div class="form-outline mb-4 " style="text-align: center;">
+      <h3> Thêm nhân viên</h3>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <input type="text" id="name" class="form-control" name="name" required autofocus/>
+        <label class="form-label" for="name">tên nhân viên</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <input type="text" id="manv" class="form-control" name="manv" required/> 
+        <label class="form-label" for="manv">mã nhân viên</label>
+      </div>
+    </div>
+  </div> 
+
+  <!-- Ảnh  input -->
+  <div class="form-outline mb-4">
+    <input type="text" id="anhdaidien" class="form-control" name="anhdaidien" required/>
+    <label class="form-label" for="anhdaidien">Ảnh đại diện</label>
+  </div>
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="number" id="diemtrungbinh" class="form-control" name="diemtrungbinh" required />
+    <label class="form-label" for="diemtrungbinh">Điểm trung bình</label>
+  </div>
+
+  
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+
+  
+</form>
