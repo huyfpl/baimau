@@ -13,6 +13,10 @@ var UserSchema = new Schema({
         type: String,
        
     },
+    fileanhdaidien:{
+       type: String,
+
+    },
     diemtrungbinh: {
         type: Number,
       

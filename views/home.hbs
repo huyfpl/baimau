@@ -1,16 +1,16 @@
-
 <div class="container" style="max-width: 400px; margin: 10px auto;">
 
-<form action="/timkiem" method="get" class="search-form" >
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Nhập tên nhân viên" name="name" style="width: 100px;">
-    <button type="submit" class="btn btn-primary">Search</button>
-  </div>
-</form>
+  <form action="/timkiem" method="get" class="search-form">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Nhập tên nhân viên" name="name" style="width: 100px;">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
 </div>
 <a href="/add" style="text-align: center;">
-      <h1>Thêm nhân viên</h1>
-    </a><table class="table align-middle mb-0 bg-white container" style="max-width: 800px;">
+  <h1>Thêm nhân viên</h1>
+</a>
+<table class="table align-middle mb-0 bg-white container" style="max-width: 800px;">
 
 
 
@@ -25,27 +25,32 @@
   </thead>
   <tbody>
     {{#each data}}
-      <tr>
-        <td>
-          <div class="d-flex align-items-center">
-            <img src="{{this.anhdaidien}}" alt="Avatar" style="width: 80px; height: 80px" class="rounded-circle" />
-          </div>
-        </td>
-        <td>
-          <p class="fw-normal mb-1">{{this.name}}</p>
-        </td>
-        <td>
-          <p class="fw-normal mb-1">{{this.manv}}</p>
-        </td>
-        <td>
-          <p>{{this.diemtrungbinh}}</p>
-        </td>
-        <td>
-          <a href="/edit/{{this._id}}" class="btn btn-link btn-sm btn-rounded">Edit</a>
-          <a href="/delete/{{this._id}}" class="btn btn-link btn-sm btn-rounded" onclick=" return confirm('bạn có muốn xóa thật không')" >Delete</a>
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          {{#if this.anhdaidien}}
+          <img src="{{this.anhdaidien}}" alt="Avatar" style="width: 80px; height: 80px" class="rounded-circle" />
+          {{else}}
+          <img src="../{{this.fileanhdaidien}}" alt="Avatar" style="width: 80px; height: 80px" class="rounded-circle" />
+          {{/if}}
+        </div>
+
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{this.name}}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{this.manv}}</p>
+      </td>
+      <td>
+        <p>{{this.diemtrungbinh}}</p>
+      </td>
+      <td>
+        <a href="/edit/{{this._id}}" class="btn btn-link btn-sm btn-rounded">Edit</a>
+        <a href="/delete/{{this._id}}" class="btn btn-link btn-sm btn-rounded"
+          onclick=" return confirm('bạn có muốn xóa thật không')">Delete</a>
+      </td>
+    </tr>
     {{/each}}
   </tbody>
 </table>
-

@@ -30,9 +30,25 @@ mongoose.connect(database.database, { useNewUrlParser: true, useUnifiedTopology:
 // đọc file hbs 
 app.set('view engine', 'hbs');
 app.set("views", "./views");
+// ảnh 
+const multer = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads')
+    },
+    filename: function (req, file, cb) {
+        const str = file.originalname;
+        const parts = str.split(".");
+        let doandau = parts[0];
+        let doansau = parts[1];
 
+        cb(null, doandau + '-' + Date.now() + '.' + doansau)
+    }
+})
+var upload = multer({ storage: storage })
+app.use(upload.single('fileanhdaidien'));
 // đọc file css
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 
 // Use the router middleware
 app.use(router);

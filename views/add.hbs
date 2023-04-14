@@ -1,4 +1,4 @@
-<form action="/add" method="post" class="container" style="padding: 30px;  max-width: 400px; margin: 10px auto; background-color: aquamarine;">
+<form  enctype="multipart/form-data" action="/add" method="post" class="container" style="padding: 30px;  max-width: 400px; margin: 10px auto; background-color: aquamarine;">
   <!-- 2 column grid layout with text inputs for the first and last names -->
   <div class="row mb-4 ">
     <div class="form-outline mb-4 " style="text-align: center;">
@@ -20,9 +20,15 @@
 
   <!-- Ảnh  input -->
   <div class="form-outline mb-4">
-    <input type="text" id="anhdaidien" class="form-control" name="anhdaidien" required/>
+    <input type="text" id="anhdaidien" class="form-control" name="anhdaidien" />
     <label class="form-label" for="anhdaidien">Ảnh đại diện</label>
   </div>
+  <!-- Ảnh  input up file-->
+  <div class="form-outline mb-4">
+    <input type="file" id="fileanhdaidien" class="form-control" name="fileanhdaidien" />
+    <label class="form-label" for="fileanhdaidien">Ảnh đại diện</label>
+  </div>
+
   <!-- Email input -->
   <div class="form-outline mb-4">
     <input type="number" id="diemtrungbinh" class="form-control" name="diemtrungbinh" required />
@@ -31,8 +37,30 @@
 
   
   <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+  <button type="submit" class="btn btn-primary btn-block mb-4">thêm</button>
 
 
   
 </form>
+{{!-- // xử lý chỉ cho nhập 1 trong 2 ô ảnh --}}
+<script>
+  const anhdaidienInput = document.getElementById('anhdaidien');
+const fileanhdaidienInput = document.getElementById('fileanhdaidien');
+
+anhdaidienInput.addEventListener('input', () => { 
+  if (anhdaidienInput.value) {
+    fileanhdaidienInput.disabled = true;  
+  } else {
+    fileanhdaidienInput.disabled = false;
+  }
+});
+
+fileanhdaidienInput.addEventListener('input', () => {
+  if (fileanhdaidienInput.value) {
+    anhdaidienInput.disabled = true;
+  } else {
+    anhdaidienInput.disabled = false;
+  }
+});
+
+</script>
