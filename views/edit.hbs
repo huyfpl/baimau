@@ -2,19 +2,19 @@
   <!-- 2 column grid layout with text inputs for the first and last names -->
   <div class="row mb-4 ">
     <div class="form-outline mb-4 " style="text-align: center;">
-      <h3> Sửa nhân viên</h3>
+      <h3> Update</h3>
     </div>
     <input type="hidden" name="id" value={{object._id}}>
     <div class="col">
       <div class="form-outline">
         <input type="text" id="name" class="form-control" name="name" required value={{object.name}} />
-        <label class="form-label" for="form3Example1">tên nhân viên</label>
+        <label class="form-label" for="form3Example1">name</label>
       </div>
     </div>
     <div class="col">
       <div class="form-outline">
         <input type="text" id="manv" class="form-control" name="manv" required value={{object.manv}} />
-        <label class="form-label" for="form3Example2">mã nhân viên</label>
+        <label class="form-label" for="form3Example2">employee code</label>
       </div>
     </div>
   </div>
@@ -23,10 +23,10 @@
   <div class="form-outline mb-4">
     {{#if object.anhdaidien}}
     <input type="text" id="anhdaidien" class="form-control" name="anhdaidien" value="{{object.anhdaidien}}" required>
-    <label class="form-label" for="anhdaidien">Ảnh đại diện (đường dẫn URL):</label>
+    <label class="form-label" for="anhdaidien">Avatar</label>
     {{else}}
     <input type="file" id="fileanhdaidien" name="fileanhdaidien" accept="image/*" required>
-    <label class="form-label" for="anhdaidien">Tải lên ảnh đại diện mới:</label>
+    <label class="form-label" for="anhdaidien">uploads Avatar</label>
     {{/if}}
   </div>
 
@@ -34,12 +34,12 @@
   <div class="form-outline mb-4">
     <input type="number" id="diemtrungbinh" class="form-control" name="diemtrungbinh" required
       value={{object.diemtrungbinh}} />
-    <label class="form-label" for="form3Example3">Điểm trung bình</label>
+    <label class="form-label" for="form3Example3">Medium score</label>
   </div>
 
 
   <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block mb-4" style="margin: 0 auto;">Sửa</button>
+  <button type="submit" class="btn btn-primary btn-block mb-4" style="margin: 0 auto;">Edit</button>
 
 
 

@@ -6,14 +6,14 @@ exports.listuser = async (req, res, next) => {
         if (users) {
             res.status(200).json({
                 data: users,
-                msg: "danh sách user"
+                msg: "list user"
                 
             });
         }
      } catch (error) {
         res.status(204).json({
             data: error,
-            msg: "ko tìm thấy danh sách",
+            msg: "i can't list user",
         });
         
      }

@@ -10,10 +10,6 @@ const app = express();
 // api
 const apiRouter = require('./routes/api');
 app.use('/api', apiRouter);
-
-
-
-
 app.use(express.static('public'));
 app.use(express.json());
 // lấy request từ form

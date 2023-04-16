@@ -1,7 +1,10 @@
 const User = require('../models/user');
 const express = require('express');
+
+
+
 module.exports.add_get = (req, res) => {
-    res.render('add', { Title: "thêm mới user" });
+    res.render('add', { Title: "add new user" });
 }
 
 module.exports.add_post = (req, res) => {
@@ -28,7 +31,7 @@ module.exports.add_post = (req, res) => {
 // sửa user
 module.exports.edit_get = async (req, res) => {
     const users = await User.findById(req.params.id);
-    res.render('edit', { Title: "sửa user", object: users.toJSON() });
+    res.render('edit', { Title: "update user", object: users.toJSON() });
 
 }
 module.exports.edit_post = async (req, res) => {
@@ -42,7 +45,6 @@ module.exports.edit_post = async (req, res) => {
         }
         if (fileanhdaidien) {
             let filesplit = fileanhdaidien.replace("uploads\\", "");
-            // mk dùng cái này để cắt cái đường dẫn nó tự thêm cái uploads\ vào đầu
             updateObj.fileanhdaidien = filesplit;
         }
         const usernew = await User.findByIdAndUpdate({ _id: user }, updateObj);
@@ -67,7 +69,7 @@ module.exports.timkiem_get = async (req, res) => {
     let name = req.query.name;
     const rex = new RegExp(name, 'i');
     let name_search = await User.find({ name: { $regex: rex } });
-    res.render('home', { Title: "tìm kiếm user", data: name_search.map((user) => user.toJSON()) });
+    res.render('home', { Title: "search user", data: name_search.map((user) => user.toJSON()) });
 
 }
 module.exports.home = async (req, res) => {

@@ -2,27 +2,24 @@
 
   <form action="/timkiem" method="get" class="search-form">
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Nhập tên nhân viên" name="name" style="width: 100px;">
+      <input type="text" class="form-control" placeholder="Enter employee name" name="name" style="width: 100px;">
       <button type="submit" class="btn btn-primary">Search</button>
     </div>
   </form>
 </div>
 <a href="/add" style="text-align: center;">
-  <h1>Thêm nhân viên</h1>
+  <h1>New</h1>
 </a>
 <table class="table align-middle mb-0 bg-white container" style="max-width: 800px;">
-
-
-
   <thead class="bg-light">
     <tr>
-      <th>Ảnh đại diện</th>
+      <th>Avatar</th>
       <th>Name</th>
-      <th>Mã nhân viên</th>
-      <th>Điểm trung bình</th>
-      <th>Chức năng</th>
+      <th>employee code</th>
+      <th>Medium score</th>
+      <th>manage</th>
     </tr>
-  </thead>
+  </thead>  
   <tbody>
     {{#each data}}
     <tr>
